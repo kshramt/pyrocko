@@ -1,3 +1,4 @@
+import sys
 from newmodel_base import Object, String, Int, Float, Bool, List, Tuple, Timestamp, load, dump, load_all, dump_all
 
 class Response(Object):
@@ -68,10 +69,14 @@ class PhaseMarker(MarkerBase):
     event = Event.T()
     pick = PhasePick.T()
 
-
 mt = MomentTensor(m=(1.,0.,0.,0.,0.,0.))
 mt.validate()
+
 print mt
+for x in load_all(open('event.truf')):
+    print x
+sys.exit()
+
 
 s = Station()
 c = Channel(channel='Z')
@@ -86,9 +91,9 @@ s.validate()
 m = Marker(nslc_patterns=[ ('', 'STA', '*', 'BH?'), ('', 'STA2', '*', 'BH?') ])
 print m
 
-#print dump_all([s, s, c])
-#print dump(s)
+print dump_all([s, s, c])
+print dump(s)
 
-for x in load_all(open('test.yaml')):
-    print x
+#for x in load_all(open('test.truf')):
+    #print x
 
