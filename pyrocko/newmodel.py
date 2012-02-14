@@ -75,7 +75,6 @@ mt.validate()
 print mt
 for x in load_all(open('event.truf')):
     print x
-
     print dump_all([x,x])
 
 
